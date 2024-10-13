@@ -1,15 +1,3 @@
-import "./index.css";
-//import perguntas from "./perguntas";
-import { useState } from "react";
-
-export default function App() {
-  return (
-    <div className="App">
-      <FlashCards />
-    </div>
-  );
-}
-
 const perguntas = [
   {
     id: 101,
@@ -29,7 +17,7 @@ const perguntas = [
   },
   {
     id: 104,
-    pergunta: "O que é um neurônio?",
+    pergunta: "O que é um neurônio",
     resposta: "É uma célula encontrada no cérebro",
   },
   {
@@ -57,7 +45,7 @@ const perguntas = [
   {
     id: 109,
     pergunta: "Cite o nome de 3 órgãos",
-    resposta: "coração, cérebro, pulmões, rins",
+    resposta: "coração, cérebro, puçmões",
   },
   {
     id: 110,
@@ -88,32 +76,4 @@ const perguntas = [
     pergunta: "O cérebro é formado pelo tecido: ",
     resposta: "Nervoso",
   },
-  {
-    id: 115,
-    pergunta: "Quais são os 5 níveis de organização do corpo humano?",
-    resposta: "Célula, tecido, órgão, sistema e organismo.",
-  },
 ];
-
-function FlashCards() {
-  const [selectedId, setSelectedId] = useState(null);
-
-  function handleClick(id) {
-    setSelectedId(id !== selectedId ? id : null);
-  }
-  return (
-    <div className="flashcards">
-      {perguntas.map((pergunta) => (
-        <div
-          key={pergunta.id}
-          onClick={() => handleClick(pergunta.id)}
-          className={pergunta.id === selectedId ? "selected" : ""}
-        >
-          <p>
-            {pergunta.id === selectedId ? pergunta.resposta : pergunta.pergunta}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-}
